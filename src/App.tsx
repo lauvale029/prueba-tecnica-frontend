@@ -65,7 +65,7 @@ function VistaNotas() {
   return (
     <div className="dashboard-container">
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-        <h1 style={{ margin: 0, color: '#111827' }}>📝 Gestión de Notas</h1>
+        <h1 style={{ margin: 0, color: '#111827' }}>Gestión de Notas</h1>
       </div>
       <NotaForm onGuardadoExitoso={handleGuardadoExitoso} />
       <div className="card">

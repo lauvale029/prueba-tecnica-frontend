@@ -13,18 +13,18 @@ export default function AlumnosList({ onEditar }: AlumnosListProps) {
   const [loading, setLoading] = useState<boolean>(true);
   const [busqueda, setBusqueda] = useState('');
   
-  /* NUEVO: Variable para saber si la DB está viva */
+  
   const [isDbOnline, setIsDbOnline] = useState<boolean>(true);
 
   const cargarAlumnos = async () => {
     try {
       const response = await api.get('/alumnos');
       setAlumnos(response.data);
-      /* NUEVO: Si la petición llega aquí, la DB funciona perfecto */
+      
       setIsDbOnline(true);
     } catch (err) {
       console.error(err);
-      /* NUEVO: Si cae en el catch, la DB o el backend fallaron */
+      
       setIsDbOnline(false);
       toast.error('Error de conexión con la base de datos.');
     } finally {
@@ -43,20 +43,19 @@ export default function AlumnosList({ onEditar }: AlumnosListProps) {
   const eliminarAlumno = async (id?: number) => {
     if (!id) return;
 
-    // Magia de SweetAlert2 en lugar de window.confirm
+    
     const result = await Swal.fire({
       title: '¿Estás seguro?',
       text: "Esta acción no se puede deshacer y el alumno será eliminado.",
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonColor: '#ef4444', // Color rojo para alertar del peligro
-      cancelButtonColor: '#9ca3af',  // Color gris para cancelar
+      confirmButtonColor: '#ef4444', 
+      cancelButtonColor: '#9ca3af',  
       confirmButtonText: 'Sí, eliminar',
-      cancelButtonText: 'Cancelar',
-      borderRadius: '12px'
+      cancelButtonText: 'Cancelar'
     });
 
-    // Si el usuario hace clic en "Sí, eliminar"
+  
     if (result.isConfirmed) {
       try {
         await api.delete(`/alumnos/${id}`);
@@ -87,7 +86,7 @@ export default function AlumnosList({ onEditar }: AlumnosListProps) {
       
       <div style={{ display: 'flex', gap: '20px', marginBottom: '30px' }}>
         
-        {/* Tarjeta 1: Total de Alumnos */}
+        {}
         <div className="card" style={{ padding: '20px', flex: 1, display: 'flex', alignItems: 'center', gap: '20px', borderLeft: '5px solid #4f46e5' }}>
           <div style={{ fontSize: '2.5rem', background: '#e0e7ff', padding: '10px', borderRadius: '12px' }}>👥</div>
           <div>
@@ -96,7 +95,7 @@ export default function AlumnosList({ onEditar }: AlumnosListProps) {
           </div>
         </div>
 
-        {/* NUEVO: Tarjeta 2 Inteligente (Cambia de color y texto según isDbOnline) */}
+        {}
         <div className="card" style={{ 
           padding: '20px', 
           flex: 1, 

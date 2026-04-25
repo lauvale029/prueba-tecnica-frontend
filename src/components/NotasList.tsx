@@ -9,11 +9,11 @@ export default function NotasList() {
   const [materias, setMaterias] = useState<Materia[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // Estados para los filtros
+  
   const [filtroAlumno, setFiltroAlumno] = useState('');
   const [filtroMateria, setFiltroMateria] = useState('');
 
-  // 1. Cargar todos los datos una sola vez al inicio
+  
   useEffect(() => {
     const cargarDatos = async () => {
       try {
@@ -32,11 +32,11 @@ export default function NotasList() {
       }
     };
     cargarDatos();
-  }, []); // El array vacío significa que solo se ejecuta al entrar a la pantalla
+  }, []); 
 
-  // 2. Magia de React: Filtramos los datos en tiempo real
+  
   const notasFiltradas = notas.filter((nota) => {
-    // Verificamos el ID de alumno/materia (soporta si Java lo envía plano o como objeto)
+    
     const idAlumno = nota.alumno?.id?.toString() || nota.alumnoId?.toString();
     const idMateria = nota.materia?.id?.toString() || nota.materiaId?.toString();
 
@@ -62,7 +62,7 @@ export default function NotasList() {
     <>
       <Toaster position="bottom-right" />
       
-      {/* Sección de Filtros */}
+      {}
       <div style={{ marginBottom: '20px', padding: '15px', background: '#f9fafb', borderRadius: '8px', border: '1px solid #e5e7eb' }}>
         <h3 style={{ margin: '0 0 10px 0', fontSize: '1rem', color: '#374151' }}>🔍 Filtrar calificaciones</h3>
         <div style={{ display: 'flex', gap: '15px' }}>
@@ -94,7 +94,7 @@ export default function NotasList() {
           ) : (
             notasFiltradas.map((nota) => (
               <tr key={nota.id}>
-                {/* Aseguramos que lea el ID correctamente sin importar cómo lo envíe el backend */}
+                {}
                 <td><strong>{getNombreAlumno(nota.alumno?.id || nota.alumnoId)}</strong></td>
                 <td>{getNombreMateria(nota.materia?.id || nota.materiaId)}</td>
                 <td>

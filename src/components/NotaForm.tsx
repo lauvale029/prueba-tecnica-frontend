@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import toast from 'react-hot-toast';
 import api from '../services/api';
-import type { Nota, Alumno, Materia } from '../types';
+import type { Alumno, Materia } from '../types';
 
 interface NotaFormProps {
   onGuardadoExitoso: () => void;
@@ -42,7 +42,6 @@ export default function NotaForm({ onGuardadoExitoso }: NotaFormProps) {
         calificacion: Number(formData.calificacion)
       };
 
-      // Única acción permitida: Crear
       await api.post('/notas', payload);
       toast.success('¡Nota registrada correctamente! 🎉');
       

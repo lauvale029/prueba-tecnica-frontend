@@ -35,7 +35,6 @@ export default function MateriasList({ onEditar }: MateriasListProps) {
   const eliminarMateria = async (id?: number) => {
     if (!id) return;
 
-    // Ventana emergente bonita para Materias
     const result = await Swal.fire({
       title: '¿Eliminar materia?',
       text: "Todos los registros asociados podrían verse afectados.",
@@ -45,7 +44,6 @@ export default function MateriasList({ onEditar }: MateriasListProps) {
       cancelButtonColor: '#9ca3af',
       confirmButtonText: 'Sí, eliminar materia',
       cancelButtonText: 'Cancelar',
-      borderRadius: '12px'
     });
 
     if (result.isConfirmed) {

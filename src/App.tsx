@@ -6,7 +6,7 @@ import AlumnosList from './components/AlumnosList';
 import AlumnoForm from './components/AlumnoForm';
 import MateriasList from './components/MateriasList';
 import MateriaForm from './components/MateriaForm';
-import type { Alumno, Materia, Nota } from './types';
+import type { Alumno, Materia } from './types';
 import NotasList from './components/NotasList';
 import NotaForm from './components/NotaForm';
 

@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-/* NUEVO: Importamos el toast */
 import toast from 'react-hot-toast'; 
 import api from '../services/api';
 import type { Alumno } from '../types';
@@ -16,8 +15,6 @@ export default function AlumnoForm({ onGuardadoExitoso, alumnoAEditar, onCancela
   });
   const [loading, setLoading] = useState(false);
   
-  /* Nota: Ya podemos quitar la variable "error" vieja porque ahora usaremos los Toasts */
-
   useEffect(() => {
     if (alumnoAEditar) {
       setFormData(alumnoAEditar);
@@ -36,25 +33,27 @@ export default function AlumnoForm({ onGuardadoExitoso, alumnoAEditar, onCancela
 
     try {
       if (formData.id) {
-        // Si tiene ID, es una actualización (PUT)
+        
         await api.put(`/alumnos/${formData.id}`, formData);
-        /* NUEVO: Mensaje de éxito al editar */
         toast.success('¡Alumno actualizado correctamente! ✨');
       } else {
-        // Si no tiene ID, es uno nuevo (POST)
+        
         await api.post('/alumnos', formData);
-        /* NUEVO: Mensaje de éxito al crear */
         toast.success('¡Alumno registrado exitosamente! 🎉');
+        
+        
+        setFormData({ nombre: '', apellido: '', email: '', fechaNacimiento: '' });
       }
       onGuardadoExitoso();
     } catch (err) {
       console.error(err);
-      /* NUEVO: Mensaje de error elegante */
       toast.error('Hubo un error al guardar. Verifica los datos.');
     } finally {
       setLoading(false);
     }
   };
+
+  const fechaMaxima = new Date().toISOString().split('T')[0];
 
   return (
     <div className="card" style={{ padding: '20px', marginBottom: '20px' }}>
@@ -80,7 +79,8 @@ export default function AlumnoForm({ onGuardadoExitoso, alumnoAEditar, onCancela
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
           <label htmlFor="fechaNacimiento" style={{ fontWeight: '600', fontSize: '0.9rem', color: '#374151' }}>Fecha de Nacimiento:</label>
-          <input id="fechaNacimiento" type="date" name="fechaNacimiento" value={formData.fechaNacimiento} onChange={handleChange} required className="form-input" />
+          {}
+          <input id="fechaNacimiento" type="date" name="fechaNacimiento" value={formData.fechaNacimiento} onChange={handleChange} max={fechaMaxima} required className="form-input" />
         </div>
         
         <div style={{ gridColumn: 'span 2', display: 'flex', gap: '10px', marginTop: '10px' }}>

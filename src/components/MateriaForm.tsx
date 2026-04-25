@@ -38,6 +38,9 @@ export default function MateriaForm({ onGuardadoExitoso, materiaAEditar, onCance
       } else {
         await api.post('/materias', formData);
         toast.success('¡Materia registrada exitosamente! 🎉');
+        
+        
+        setFormData({ nombre: '', codigo: '', creditos: 1 });
       }
       onGuardadoExitoso();
     } catch (err) {

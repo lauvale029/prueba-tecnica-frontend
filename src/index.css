@@ -1,20 +1,20 @@
-/* Importamos Poppins, una fuente Premium, moderna y muy elegante */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 
 body {
   margin: 0;
-  /* Aplicamos la nueva fuente */
+  
   font-family: 'Poppins', sans-serif;
-  /* Aumentamos el tamaño base (el estándar suele ser 16px, lo subimos a 18px) */
+  
   font-size: 18px; 
-  background-color: #f8fafc; /* Un gris azulado aún más sutil y limpio */
+  background-color: #f8fafc; 
   color: #1e293b;
-  /* Le damos un poco más de "aire" a los textos para que respiren mejor */
+  
   line-height: 1.6;
-  -webkit-font-smoothing: antialiased; /* Esto hace que la letra se vea más nítida en pantallas HD */
+  -webkit-font-smoothing: antialiased; 
 }
 
-/* Hacemos que los inputs hereden la nueva fuente y tamaño */
+
 input, button, select, textarea {
   font-family: inherit;
   font-size: 0.95rem;
@@ -33,7 +33,7 @@ input, button, select, textarea {
   margin-bottom: 40px;
 }
 
-/* Estilo "Tarjeta" para contener la tabla */
+
 .card {
   background: #ffffff;
   border-radius: 12px;
@@ -41,7 +41,7 @@ input, button, select, textarea {
   overflow: hidden;
 }
 
-/* La Tabla Pro */
+
 .styled-table {
   width: 100%;
   border-collapse: collapse;
@@ -50,7 +50,7 @@ input, button, select, textarea {
 }
 
 .styled-table thead tr {
-  background-color: #4f46e5; /* Color índigo moderno */
+  background-color: #4f46e5; 
   color: #ffffff;
   text-align: left;
 }
@@ -71,7 +71,7 @@ input, button, select, textarea {
   transition: background-color 0.2s ease;
 }
 
-/* Efecto hover al pasar el mouse por las filas */
+
 .styled-table tbody tr:hover {
   background-color: #f9fafb;
 }
@@ -80,7 +80,7 @@ input, button, select, textarea {
   border-bottom: 3px solid #4f46e5;
 }
 
-/* Estados de carga y error */
+
 .loading-text {
   text-align: center;
   padding: 40px;
@@ -104,7 +104,7 @@ input, button, select, textarea {
   50% { opacity: .5; }
 }
 
-/* Estilos para el formulario */
+
 .form-input {
   padding: 12px;
   border: 1px solid #d1d5db;
@@ -120,7 +120,7 @@ input, button, select, textarea {
   box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
 }
 
-/* Barra de Navegación */
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -161,7 +161,7 @@ input, button, select, textarea {
   color: #4f46e5;
 }
 
-/* Landing Page (Hero Section) */
+
 .hero-container {
   min-height: calc(100vh - 70px);
   display: flex;
@@ -177,7 +177,7 @@ input, button, select, textarea {
   font-size: 4rem;
   font-weight: 800;
   margin-bottom: 20px;
-  /* Efecto de texto con gradiente moderno */
+  
   background: linear-gradient(135deg, #4f46e5, #ec4899);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -209,7 +209,7 @@ input, button, select, textarea {
   box-shadow: 0 15px 20px -3px rgba(79, 70, 229, 0.4);
 }
 
-/* Estilos para el Avatar Automático */
+
 .avatar-container {
   display: flex;
   align-items: center;
